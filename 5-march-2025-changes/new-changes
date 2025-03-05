@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kutullo - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet"> <!-- icon link -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+        body {
+            background-color: #f4f4f4;
+        }
+        .nav-border {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #222;
+            color: white;
+            padding: 15px 50px;
+        }
+        .nav-border ul {
+            list-style: none;
+            display: flex;
+            justify-items: flex-end;
+        }
+        .nav-border ul li {
+            margin: 10px 10px;
+        }
+        .nav-border ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 17px;
+        }
+
+        .nav-border   a:hover{
+            color: #ff6600;
+        }
+
+        .nav-border .fas{
+            margin-right: 5px;
+
+        }
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 105vh; /* To be changed */ 
+            background: url('background-image.jpg') no-repeat center center/cover;
+            padding: 50px;
+            color: white;
+            background-color: #ff6600;
+    
+        }
+
+        .nav-border .logo{
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        .hero .hero-nice-backround{
+            background-color: #3c3c3c;
+            padding: 80px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            height: 60vh;   
+            border-top-right-radius: 18px;
+            border-bottom-right-radius: 18px;
+        }
+        .hero-text {
+            max-width: 50%;
+            font-size: 2em;
+            font-weight: bold;
+        }
+        .hero .hero-button-2 button {
+            margin-top: 20px;  /* To be changed */ 
+            padding: 10px 20px; /* To be changed */ 
+            font-size: 1em;
+            border: none;
+            background: #ff6600;
+            color: white;
+            cursor: pointer;
+            border-radius: 10px;
+            margin-left: 100px;
+           display: none;/* closed for testing */ 
+        }
+
+       
+        .hero .hero-graphics{
+            background-color: aqua;
+            height: 50px;
+            width: 50px;
+            position: absolute;
+            border-radius: 50px;
+            padding: 25px;
+        }
+
+        .hero .hero-graphics::before{
+            content: '';
+            background-color: aqua;
+            height: 90px;
+            width: 150px;
+            position: absolute;
+            border-radius: 50px;
+            padding: 2px;
+            margin-left: 620px;
+            margin-top: -8vh;
+        }
+
+        .hero .hero-graphics::after{
+            content: '';
+            background-color: aqua;
+            height: 90px;
+            width: 0px;
+            position: absolute;
+            border-radius: 50px;
+            padding: 25px;
+            margin-left: 620px;
+            margin-top: -42vh;
+            margin-left: -1vh;
+        }
+
+        .hero-graphics-2{
+           
+            width: 55vh;
+            background-color: aqua;
+            margin-left: 60px;
+            padding: 18px;
+            border-top-right-radius: 7px;
+            border-bottom-right-radius: 7px;
+            margin-top: 10px;
+        }
+
+        
+        
+        .hero button:hover {
+            background: #cc5500;
+        }
+        .hero-image {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            padding: 15em;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            position: absolute; /* changed from relative */ 
+            margin-left: 1000px;
+            top: 271px;
+        }
+
+        
+        .hero-image img {
+            border-radius: 10px;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-image .below-profile-image {
+            position: relative;
+            bottom: -286px;
+            right: -0%;
+            margin-left: 50px;
+            transform: translateX(50%);
+            background: #ff6600;
+            background-color: white;
+            color: black;
+            font-weight: bolder;
+            padding: 10px 60px;
+            border: none;
+            border-radius:30px;
+            cursor: pointer;
+            
+        }
+        .social-icons {
+            position: absolute;
+            bottom: -70px;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+        }
+        .social-icons a {
+            text-decoration: none;
+            color: #222;
+            font-size: 24px;
+            transition: color 0.3s;
+            background: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+           
+        }
+        .social-icons a:hover {
+            color: #ff6600;
+        }
+        .first{
+            background-color: black;
+            color: #f4f4f4;
+            font-size: 20px;
+            border-radius: 20px;
+            padding: 10px 15px;
+            border: none;
+        }
+        .typing-text::after {
+            content: '|';
+            animation: blink 0.7s infinite;
+        }
+
+        
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* SECOND SECTION - EDUCATION */ 
+        .education-container{
+            background-color: #3c3c3c;
+            height: 60vh;
+            justify-content: center;
+            position: relative; 
+        }
+        .education-nice-background{
+            background-color: #a0a0a0;
+            height: 10vh;
+            width: 75vh;
+            border-radius: 7px;
+            top: -60px;
+            margin-left: 50px;
+            position: absolute;
+           /*justify-items: center;  ELEMENTS/THINGS WITHIN THE DIV */
+        }
+
+        /* TESTING */
+        .education-nice-background::before{
+            content: '';
+            background-color: aqua;
+            height: 5vh;
+            width: 5vh;
+            border-radius: 7px;
+            position: absolute;
+            top: -60px;
+            margin-left: 75vh;
+        }
+
+        .education-tittle-designs{  
+            background-color: #000000;
+            height: 10vh;
+            width: 10vh;
+            position: absolute;
+            margin-left: 65vh;
+            border-radius: 7px;
+            display: flex;
+        }
+        .education-tittle-designs::before{
+            content: '';
+            background-color: #000000;
+            height: 10vh;
+            width: 10vh;
+            border-radius: 7px;
+            position: absolute;
+            margin-left: -14vh;
+        }
+
+        .education-container h2{
+            color: #f4f4f4;
+            font-size: 30px;
+            margin-left: -3vh;
+            position: absolute;
+            top: 50%;  /* Moves the element to the middle of the parent container */
+            left: 50%;  /* Moves the element to the middle of the parent container */
+            transform: translate(-50%, -50%);
+        }
+
+
+        /* EDUCATION CARDS BACKGROUND */
+        .education-content-backround-1 {
+            background-color: aqua;
+            display: flex;
+            height: 18vh;
+            width: 110vh;
+            border-radius: 7px;
+            margin-left: 30vh;
+            bottom: -12vh;
+            position: relative;
+            z-index: 1; /* Lower z-index, still works in stacking order */
+        }
+
+        /* EDUCATION CARDS TITLE HOLDER */
+        .education-cards-tittle-holder {
+            width: 140px;
+            height: 90px;
+            background-color: #000000;
+            position: absolute;
+            left: 260px;
+            top: 110px;
+            border-radius: 7px;
+            z-index: 30; /* Higher z-index to place it on top */
+}
+        .education-content-backround h4{
+            font-size: 30px;
+            font-weight: bold;
+            color: #f4f4f4;
+            position: absolute;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="nav-border">
+        <div class="logo">Kutullo.L</div>
+        <ul>
+            <li><a href="#about"><i class="fas fa-user icon"></i>About</a></li>
+            <li><a href="#education"><i class="fas fa-graduation-cap icon"></i>Education</a></li>
+            <li><a href="#skills"><i class="fas fa-tools icon"></i>Skills</a></li>
+            <li><a href="#summary"><i class="fas fa-trophy icon"></i>Achievements</a></li>
+        </ul>
+    </nav>
+    
+    <section class="hero">
+        <div class="hero-text">
+        <div class="hero-nice-backround">
+            <h1>Welcome to My Portfolio</h1>
+            <p>Passionate about technology and innovation.<br>Let's connect!</p><br>
+        <div class="hero-button-2">
+            <button>View Profile Summary</button>
+            <button>View Profile Summary</button>
+        </div>
+
+        <div class="hero-graphics">
+           
+        </div>
+
+        <div class="hero-graphics-2">
+           
+        </div>
+
+        </div>
+        </div>
+        <div class="hero-image">
+            <img src="" alt="My picture">
+            <div class="social-icons">
+                <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <div>
+                <button class="below-profile-image">Download CV</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="education-container" id="education">
+        <div class="education-nice-background">
+          <H2>.EDUCATION</H2>
+        </div>
+        <div class="education-tittle-designs">
+            <h4>2024 - 2024</h4>
+            
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <div class="education-cards-tittle-holder">
+
+        </div>
+       
+
+        <div class="education-content-backround-1">
+            <h4>2024 - 2024</h4>
+
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="education-content-backround-1">
+
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="education-content-backround-1">
+
+        </div>
+
+    </div>
+
+     <!--  /*<div class="education-container" id="skills">
+        <p>ggggggggggg</p>
+        <p>ggggggggggg</p>
+        <p>ggggggggggg</p>
+        <div class="education-nice-background">
+            <p>ggggggggggg</p>
+            <p>ggggggggggg</p>
+        </div>
+        </div>*/ -->
+
+
+    <script>
+        const text = "Welcome to My Portfol";
+        let index = 0;
+        function typeEffect() {
+            if (index < text.length) {
+                document.querySelector(".typing-text").textContent += text.charAt(index);
+                index++;
+                setTimeout(typeEffect, 100);
+            }
+        }
+        window.onload = typeEffect;
+    </script>
+</body>
+</html>
