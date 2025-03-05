@@ -433,3 +433,155 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+ <!-- Third Education Block -->
+  /* <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Education Section</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f7b733, #fc4a1a);
+            color: white;
+        }
+
+        /* Container */
+        .education-container {
+            width: 80%;
+            margin: auto;
+            padding: 30px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        /* Background Shapes */
+        .shape {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+        .shape1 { top: 50px; left: 10%; background: #ffecb3; }
+        .shape2 { bottom: 50px; right: 10%; background: #ff9800; }
+        .shape3 { top: 40%; left: 80%; background: #f44336; }
+
+        /* Title Section */
+        .education-title {
+            font-size: 28px;
+            font-weight: bold;
+            padding: 20px;
+            border-radius: 20px;
+            display: inline-block;
+            background: white;
+            color: #ff5722;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Education Cards */
+        .education-card {
+            background: white;
+            color: #333;
+            padding: 20px;
+            margin: 30px auto;
+            border-radius: 15px;
+            width: 60%;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+        .education-card:hover {
+            transform: scale(1.05);
+            background-color: aqua;
+            border: #ffecb3;
+        }
+
+        /* Card Decorations */
+        .education-card::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            width: 50px;
+            height: 50px;
+            background: #ff9800;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+        .education-card::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            background: #f44336;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+
+        /* Icons */
+        .education-icon {
+            width: 80px;
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .education-card {
+                width: 80%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="education-container" id="education">
+        <div class="shape shape1"></div>
+        <div class="shape shape2"></div>
+        <div class="shape shape3"></div>
+
+        <h2 class="education-title">🎉 My Education Journey 📚</h2>
+
+        <!-- First Education Block -->
+        <div class="education-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Graduation Cap" class="education-icon">
+            <h3>Master of ICT in Information Science</h3>
+            <h4>2024 - 2024</h4>
+            <p>Specialized in **EdTech** and **Competitive Intelligence**</p>
+        </div>
+
+        <!-- Second Education Block -->
+        <div class="education-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/1256/1256650.png" alt="Degree Icon" class="education-icon">
+            <h3>Bachelor of Information Science (Honors)</h3>
+            <h4>2022 - 2023</h4>
+            <p>Explored **Artificial Intelligence** and **Data Science**</p>
+        </div>
+
+        <!-- Third Education Block -->
+        <div class="education-card">
+            <img src="https://cdn-icons-png.flaticon.com/512/2091/2091774.png" alt="Certificate Icon" class="education-icon">
+            <h3>Bachelor of Information Science</h3>
+            <h4>2018 - 2021</h4>
+            <p>Learned about **Digital Transformation** and **Research Analysis**</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
+ */
