@@ -987,3 +987,293 @@ CONSIDER
 
 </body>
 </html>
+
+
+RESPONSIVE EDUCATIONS AND SKILLS
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Education Cards</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            background: #f5f5f5;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            width: 100%;
+        }
+        .card {
+            position: relative;
+            width: 100%;
+          /* max-width: 300px; */
+            height: auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: flex-start;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .card h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .card p {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .info-box {
+            position: absolute;
+            background: #007bff;
+            color: white;
+            padding: 8px 12px;
+            font-size: 14px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+        .start-year {
+            top: -10px;
+            left: -10px;
+        }
+        .end-year {
+            top: 30px;
+            left: -10px;
+        }
+        .average {
+            bottom: -10px;
+            right: -10px;
+            background: #28a745;
+        }
+        .card .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+        .card .statistics {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 14px;
+            color: #333;
+        }
+        .card .statistics span {
+            font-weight: bold;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .download-btn {
+            padding: 12px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+        .download-btn:hover {
+            background-color: #0056b3;
+        }
+        /* Skills Section */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 50px;
+            width: 100%;
+        }
+        .skill-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .skill-card h4 {
+            color: #333;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        .progress-ring {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: conic-gradient(#007bff 0deg 75%, #dcdcdc 75deg 360deg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .progress-ring span {
+            font-size: 18px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .progress-ring .percentage {
+            position: absolute;
+            font-size: 22px;
+            font-weight: bold;
+            color: #333;
+        }
+        .skill-description {
+            color: #666;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        @media (max-width: 768px) {
+            .card {
+                width: 90%;
+            }
+            .skill-card {
+                width: 90%;
+            }
+        }
+        @media (min-width: 1024px) {
+            body {
+                padding: 0 50px;
+            }
+            .card-container {
+                justify-content: space-around;
+            }
+            .card {
+                width: 45%;
+                max-width: 600px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <!-- Existing Cards -->
+        <div class="card">
+            <div class="info-box start-year">2015</div>
+            <div class="info-box end-year">2019</div>
+            <div class="icon">📚</div>
+            <h3>Modern Learning Strategies</h3>
+            <p>Learn how modern education systems are embracing technology and innovative teaching methods for a brighter future.</p>
+            <div class="statistics">
+                <span>Subjects: 5</span>
+                <span>Teachers: 15</span>
+            </div>
+            <div class="info-box average">Average Score: 85%</div>
+        </div>
+        <div class="card">
+            <div class="info-box start-year">2016</div>
+            <div class="info-box end-year">2020</div>
+            <div class="icon">🖥️</div>
+            <h3>Tech in the Classroom</h3>
+            <p>How technology is revolutionizing classrooms worldwide, from online platforms to interactive learning tools.</p>
+            <div class="statistics">
+                <span>Tech Tools: 8</span>
+                <span>Students: 200+</span>
+            </div>
+            <div class="info-box average">Average Score: 90%</div>
+        </div>
+
+        <div class="card">
+            <div class="info-box start-year">2016</div>
+            <div class="info-box end-year">2020</div>
+            <div class="icon">🖥️</div>
+            <h3>Tech in the Classroom</h3>
+            <p>How technology is revolutionizing classrooms worldwide, from online platforms to interactive learning tools.</p>
+            <div class="statistics">
+                <span>Tech Tools: 8</span>
+                <span>Students: 200+</span>
+            </div>
+            <div class="info-box average">Average Score: 90%</div>
+        </div>
+        <div class="card">
+            <div class="info-box start-year">2022</div>
+            <div class="info-box end-year">2025</div>
+            <div class="icon">🎓</div>
+            <h3>Master of Information & Communication Technology</h3>
+            <p>Specializing in Information Science, focusing on competitive intelligence, AI-driven research, and information behavior.</p>
+            <div class="statistics">
+                <span>Courses: 6</span>
+                <span>Research Focus: 2</span>
+            </div>
+            <div class="info-box average">Current GPA: 3.9/4.0</div>
+        </div>
+    </div>
+
+    <!-- Download Button -->
+    <div class="button-container">
+        <a href="path_to_your_academic_record.pdf" download class="download-btn">Download My Academic Record</a>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="skills-container">
+        <!-- Skill 1 -->
+        <div class="skill-card">
+            <h4>Data Analysis</h4>
+            <div class="progress-ring">
+                <span class="percentage">80%</span>
+            </div>
+            <p class="skill-description">Experienced in analyzing large datasets, drawing insights, and presenting actionable conclusions.</p>
+        </div>
+
+        <!-- Skill 2 -->
+        <div class="skill-card">
+            <h4>Competitive Intelligence</h4>
+            <div class="progress-ring">
+                <span class="percentage">90%</span>
+            </div>
+            <p class="skill-description">Expert in gathering, analyzing, and leveraging competitive data to make strategic decisions.</p>
+        </div>
+
+        <!-- Skill 3 -->
+        <div class="skill-card">
+            <h4>AI Integration</h4>
+            <div class="progress-ring">
+                <span class="percentage">70%</span>
+            </div>
+            <p class="skill-description">Proficient in integrating AI technologies into systems for automated decision-making and insights generation.</p>
+        </div>
+
+        
+
+        <!-- Skill 4 -->
+        <div class="skill-card">
+            <h4>Web Development</h4>
+            <div class="progress-ring">
+                <span class="percentage">75%</span>
+            </div>
+            <p class="skill-description">Strong experience in developing responsive, user-friendly websites using modern web technologies.</p>
+        </div>
+    </div>
+</body>
+</html>
+
