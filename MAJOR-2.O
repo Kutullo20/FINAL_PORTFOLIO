@@ -1,0 +1,989 @@
+CHOICE
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset and General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #222;
+            color: white;
+            padding: 15px 5%; /* Responsive padding */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Nice gap between menu items and button */
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 15px; /* Gap between menu items */
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Gap between icon and text */
+        }
+
+        .navbar ul li a:hover {
+            color: #ff6600;
+        }
+
+        .navbar .download-btn {
+            padding: 10px 20px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Gap between icon and text */
+        }
+
+        .navbar .download-btn:hover {
+            background-color: #cc5500;
+        }
+
+        /* Hamburger Menu */
+        .navbar .hamburger {
+            display: none; /* Hidden by default */
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .navbar .nav-menu {
+                display: none; /* Hide the nav menu on small screens */
+                flex-direction: column;
+                position: absolute;
+                top: 100%; /* Position below the navbar */
+                left: 0;
+                width: 100%;
+                background: #222;
+                padding: 10px 0;
+                gap: 10px;
+            }
+
+            .navbar .nav-menu.active {
+                display: flex; /* Show the nav menu when active */
+            }
+
+            .navbar .hamburger {
+                display: block; /* Show the hamburger icon */
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .navbar .download-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Home Page */
+        .home-page {
+            min-height: 100vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 50px 5%; /* Responsive padding */
+            background-color: #fff;
+            flex-wrap: wrap;
+            position: relative; /* Important for absolute positioning */
+        }
+
+        .home-page-text {
+            flex: 1;
+            max-width: 50%; /* Flexible width */
+        }
+
+        .home-page-text h4 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .home-page-text p {
+            font-size: 1.2rem;
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        .home-page-text .button-container {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Gap between buttons */
+        }
+
+        .home-page-text .button-container button {
+            background-color: #cc5500;
+            padding: 14px 47px;
+            border-radius: 5px;
+            border: none;
+            color: #f5f5f5;
+            cursor: pointer;
+        }
+
+        .home-page-text .button-container button:hover {
+            background-color: #b54400;
+        }
+
+        .home-page-text .button-container .chatbot-btn {
+            width: 50px;
+            height: 50px;
+            background-color: #007bff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .home-page-text .button-container .chatbot-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Image Container - Circular */
+        .image-container {
+            position: relative;
+            width: 400px; /* Increased size */
+            height: 400px; /* Increased size */
+            background-color: #cc5500;
+            border-radius: 50%; /* Circular shape */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: visible; /* Ensure overflow is visible */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+        }
+
+        /* Illustration (HTML Element) */
+        .illustration {
+            position: absolute; /* Position the illustration absolutely */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center the illustration */
+            width: 160px; /* Increased size */
+            height: 160px; /* Increased size */
+            background-color: #fff; /* Background color of the illustration */
+            border-radius: 50%; /* Make it a circle */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem; /* Increased icon size */
+            color: #cc5500; /* Icon color */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+        }
+
+        /* Left Shapes - OUT OF THE BOX (positioned outside) */
+        .left-shapes {
+            position: absolute;
+            left: -120px; /* Adjusted position */
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* Increased gap */
+            z-index: 2; /* Ensure shapes are above the illustration */
+        }
+
+        .left-shapes .shape {
+            width: 14em; /* Use em units for flexible width */
+            height: 3em; /* Use em units for flexible height */
+            background-color: aqua;
+            border-radius: 5px; /* Adjusted border radius */
+            display: flex;
+            align-items: center; /* Center items vertically */
+            text-align: left; /* Align text to the left */
+            font-size: 1rem; /* Base font size */
+            color: black;
+            font-weight: bold; /* Make text bold */
+            white-space: nowrap; /* Prevent text from wrapping */
+            overflow: hidden; /* Prevent text from overflowing */
+            text-overflow: ellipsis; /* Add ellipsis if text overflows */
+            padding: 0 1em; /* Added padding for space on both sides */
+            box-sizing: border-box; /* Ensure padding is included in width */
+            gap: 0.5em; /* Space between icon and text */
+        }
+
+        .left-shapes .shape i {
+            font-size: 1.5em; /* Icon size relative to the shape's font size */
+            color: white; /* Icon color */
+        }
+
+        /* Social Icons - Below the Image Container */
+        .social-icons-below {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px; /* Space between image container and icons */
+            width: 100%; /* Ensure it takes full width */
+        }
+
+        .social-icons-below a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px; /* Increased size */
+            height: 60px; /* Increased size */
+            background-color: #007bff;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 1.8rem; /* Increased icon size */
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icons-below a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 80px 5%; /* Add padding for spacing */
+            background-color: #f9f9f9; /* Light background color */
+            text-align: center; /* Center align the content */
+        }
+
+        .services-section .section-title {
+            font-size: 2.5rem; /* Large font size for the title */
+            color: #333; /* Dark text color */
+            margin-bottom: 20px; /* Space below the title */
+            position: relative; /* For the decorative underline */
+            display: inline-block; /* Ensure the underline fits the text */
+        }
+
+        .services-section .section-title::after {
+            content: ''; /* Create the underline */
+            position: absolute;
+            left: 50%; /* Center the underline */
+            bottom: -10px; /* Position below the title */
+            width: 60px; /* Width of the underline */
+            height: 4px; /* Thickness of the underline */
+            background-color: #ff6600; /* Orange color for the underline */
+            transform: translateX(-50%); /* Center the underline */
+            transition: width 0.3s ease; /* Smooth hover effect */
+        }
+
+        .services-section .section-title:hover::after {
+            width: 100px; /* Expand the underline on hover */
+        }
+
+        .services-section .section-subtitle {
+            font-size: 1.2rem; /* Subtitle font size */
+            color: #666; /* Light gray text color */
+            margin-bottom: 40px; /* Space below the subtitle */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .home-page {
+                flex-direction: column;
+                text-align: center;
+                padding: 50px 20px;
+            }
+
+            .home-page-text {
+                max-width: 100%; /* Full width on small screens */
+            }
+
+            .image-container {
+                width: 300px; /* Adjusted size for mobile */
+                height: 300px; /* Adjusted size for mobile */
+            }
+
+            .illustration {
+                width: 120px; /* Adjusted size for mobile */
+                height: 120px; /* Adjusted size for mobile */
+                font-size: 2rem; /* Adjusted icon size for mobile */
+            }
+
+            .left-shapes {
+                left: -80px; /* Adjusted position for mobile */
+                flex-direction: row; /* Display shapes in a row on smaller screens */
+                top: 50%;
+                transform: translateY(-50%);
+                gap: 15px; /* Adjusted gap for mobile */
+            }
+
+            .left-shapes .shape {
+                width: 10em; /* Adjusted width for mobile */
+                height: 2.5em; /* Adjusted height for mobile */
+                font-size: 0.9rem; /* Adjusted font size for mobile */
+                padding: 0 0.8em; /* Adjusted padding for mobile */
+            }
+
+            .left-shapes .shape i {
+                font-size: 1.2em; /* Adjusted icon size for mobile */
+            }
+
+            .social-icons-below {
+                flex-direction: row; /* Display icons in a row on smaller screens */
+            }
+
+            .services-section .section-title {
+                font-size: 2rem; /* Smaller font size for mobile */
+            }
+
+            .services-section .section-subtitle {
+                font-size: 1rem; /* Smaller font size for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">Kutullo</div>
+        <div class="nav-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <button class="download-btn">
+                <i class="fas fa-download"></i> Download CV
+            </button>
+        </div>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+
+    <section class="home-page">
+        <div class="home-page-text">
+            <h4>Hello, I'm Kutullo</h4>
+            <p>Welcome to my portfolio. I'm a passionate web developer, and I'm excited to show you my work.</p>
+            <div class="button-container">
+                <button>Contact Me</button>
+                <div class="chatbot-btn">
+                    <i class="fas fa-comment"></i>
+                </div>
+            </div>
+        </div>
+        <div class="image-container">
+            <div class="illustration">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="left-shapes">
+                <div class="shape">
+                    <i class="fas fa-laptop-code"></i> <!-- Icon for Software Developer -->
+                    Software Developer
+                </div>
+                <div class="shape">
+                    <i class="fas fa-chart-line"></i> <!-- Icon for Data Analyst -->
+                    Data Analyst
+                </div>
+                <div class="shape">
+                    <i class="fas fa-database"></i> <!-- Icon for Information Specialist -->
+                    Information Specialist
+                </div>
+            </div>
+        </div>
+        <!-- Social Icons Below the Image Container -->
+        <div class="social-icons-below">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">We offer a wide range of services to help you achieve your goals.</p>
+        <!-- Add your services content here -->
+    </section>
+
+    <script>
+        // JavaScript for the hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>
+
+
+CONSIDER
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Reset and General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #222;
+            color: white;
+            padding: 15px 5%; /* Responsive padding */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .navbar .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Nice gap between menu items and button */
+        }
+
+        .navbar ul {
+            list-style: none;
+            display: flex;
+            gap: 15px; /* Gap between menu items */
+        }
+
+        .navbar ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Gap between icon and text */
+        }
+
+        .navbar ul li a:hover {
+            color: #ff6600;
+        }
+
+        .navbar .download-btn {
+            padding: 10px 20px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px; /* Gap between icon and text */
+        }
+
+        .navbar .download-btn:hover {
+            background-color: #cc5500;
+        }
+
+        /* Hamburger Menu */
+        .navbar .hamburger {
+            display: none; /* Hidden by default */
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .navbar .nav-menu {
+                display: none; /* Hide the nav menu on small screens */
+                flex-direction: column;
+                position: absolute;
+                top: 100%; /* Position below the navbar */
+                left: 0;
+                width: 100%;
+                background: #222;
+                padding: 10px 0;
+                gap: 10px;
+            }
+
+            .navbar .nav-menu.active {
+                display: flex; /* Show the nav menu when active */
+            }
+
+            .navbar .hamburger {
+                display: block; /* Show the hamburger icon */
+            }
+
+            .navbar ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .navbar .download-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Home Page */
+        .home-page {
+            min-height: 100vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 50px 5%; /* Responsive padding */
+            background-color: #fff;
+            flex-wrap: wrap;
+            position: relative; /* Important for absolute positioning */
+        }
+
+        /* Home Page Text and Button Container Background */
+        .home-page-text {
+            flex: 1;
+            max-width: 50%; /* Flexible width */
+            position: relative; /* For positioning the background */
+            z-index: 1; /* Ensure text is above the background */
+            padding: 20px; /* Add some padding */
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        .home-page-text::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background: linear-gradient(135deg, #007bff, #00bfff); /* Gradient background */
+            z-index: -1; /* Place behind the text */
+            border-radius: 25px; /* Rounded corners */
+            animation: rotateBackground 10s linear infinite; /* Rotating animation */
+        }
+
+        @keyframes rotateBackground {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .home-page-text h4 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: black;
+        }
+
+        .home-page-text p {
+            font-size: 1.2rem;
+            color: black;
+            margin-bottom: 10px;
+        }
+
+        .home-page-text .button-container {
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Gap between buttons */
+            position: relative; /* For positioning the background */
+            z-index: 1; /* Ensure buttons are above the background */
+        }
+
+        .button-container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: linear-gradient(135deg, #ff6600, #ffcc00); /* Gradient background */
+            z-index: -1; /* Place behind the buttons */
+            border-radius: 15px; /* Rounded corners */
+            animation: pulseBackground 2s ease-in-out infinite; /* Pulsing animation */
+        }
+
+        @keyframes pulseBackground {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .home-page-text .button-container button {
+            background-color: #cc5500;
+            padding: 14px 47px;
+            border-radius: 5px;
+            border: none;
+            color: #f5f5f5;
+            cursor: pointer;
+        }
+
+        .home-page-text .button-container button:hover {
+            background-color: #b54400;
+        }
+
+        .home-page-text .button-container .chatbot-btn {
+            width: 50px;
+            height: 50px;
+            background-color: #007bff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            position: relative; /* For positioning the background */
+            z-index: 1; /* Ensure button is above the background */
+        }
+
+        .chatbot-btn::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(135deg, #007bff, #00bfff); /* Gradient background */
+            z-index: -1; /* Place behind the button */
+            border-radius: 50%; /* Circular shape */
+            animation: rotateBackground 5s linear infinite; /* Rotating animation */
+        }
+
+        .home-page-text .button-container .chatbot-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* Image Container - Circular */
+        .image-container {
+            position: relative;
+            width: 400px; /* Increased size */
+            height: 400px; /* Increased size */
+            background-color: #cc5500;
+            border-radius: 50%; /* Circular shape */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: visible; /* Ensure overflow is visible */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+        }
+
+        /* Illustration (HTML Element) */
+        .illustration {
+            position: absolute; /* Position the illustration absolutely */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Center the illustration */
+            width: 160px; /* Increased size */
+            height: 160px; /* Increased size */
+            background-color: #fff; /* Background color of the illustration */
+            border-radius: 50%; /* Make it a circle */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem; /* Increased icon size */
+            color: #cc5500; /* Icon color */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
+        }
+
+        /* Left Shapes - OUT OF THE BOX (positioned outside) */
+        .left-shapes {
+            position: absolute;
+            left: -120px; /* Adjusted position */
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            gap: 30px; /* Increased gap */
+            z-index: 2; /* Ensure shapes are above the illustration */
+        }
+
+        .left-shapes .shape {
+            width: 14em; /* Use em units for flexible width */
+            height: 3em; /* Use em units for flexible height */
+            background-color: aqua;
+            border-radius: 5px; /* Adjusted border radius */
+            display: flex;
+            align-items: center; /* Center items vertically */
+            text-align: left; /* Align text to the left */
+            font-size: 1rem; /* Base font size */
+            color: black;
+            font-weight: bold; /* Make text bold */
+            white-space: nowrap; /* Prevent text from wrapping */
+            overflow: hidden; /* Prevent text from overflowing */
+            text-overflow: ellipsis; /* Add ellipsis if text overflows */
+            padding: 0 1em; /* Added padding for space on both sides */
+            box-sizing: border-box; /* Ensure padding is included in width */
+            gap: 0.5em; /* Space between icon and text */
+        }
+
+        .left-shapes .shape i {
+            font-size: 1.5em; /* Icon size relative to the shape's font size */
+            color: white; /* Icon color */
+        }
+
+        /* Social Icons - Below the Image Container */
+        .social-icons-below {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px; /* Space between image container and icons */
+            width: 100%; /* Ensure it takes full width */
+        }
+
+        .social-icons-below a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px; /* Increased size */
+            height: 60px; /* Increased size */
+            background-color: #007bff;
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            font-size: 1.8rem; /* Increased icon size */
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icons-below a:hover {
+            background-color: #0056b3;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 80px 5%; /* Add padding for spacing */
+            background-color: #f9f9f9; /* Light background color */
+            text-align: center; /* Center align the content */
+        }
+
+        .services-section .section-title {
+            font-size: 2.5rem; /* Large font size for the title */
+            color: #333; /* Dark text color */
+            margin-bottom: 20px; /* Space below the title */
+            position: relative; /* For the decorative underline */
+            display: inline-block; /* Ensure the underline fits the text */
+        }
+
+        .services-section .section-title::after {
+            content: ''; /* Create the underline */
+            position: absolute;
+            left: 50%; /* Center the underline */
+            bottom: -10px; /* Position below the title */
+            width: 60px; /* Width of the underline */
+            height: 4px; /* Thickness of the underline */
+            background-color: #ff6600; /* Orange color for the underline */
+            transform: translateX(-50%); /* Center the underline */
+            transition: width 0.3s ease; /* Smooth hover effect */
+        }
+
+        .services-section .section-title:hover::after {
+            width: 100px; /* Expand the underline on hover */
+        }
+
+        .services-section .section-subtitle {
+            font-size: 1.2rem; /* Subtitle font size */
+            color: #666; /* Light gray text color */
+            margin-bottom: 40px; /* Space below the subtitle */
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .home-page {
+                flex-direction: column;
+                text-align: center;
+                padding: 50px 20px;
+            }
+
+            .home-page-text {
+                max-width: 100%; /* Full width on small screens */
+            }
+
+            .image-container {
+                width: 300px; /* Adjusted size for mobile */
+                height: 300px; /* Adjusted size for mobile */
+            }
+
+            .illustration {
+                width: 120px; /* Adjusted size for mobile */
+                height: 120px; /* Adjusted size for mobile */
+                font-size: 2rem; /* Adjusted icon size for mobile */
+            }
+
+            .left-shapes {
+                left: -80px; /* Adjusted position for mobile */
+                flex-direction: row; /* Display shapes in a row on smaller screens */
+                top: 50%;
+                transform: translateY(-50%);
+                gap: 15px; /* Adjusted gap for mobile */
+            }
+
+            .left-shapes .shape {
+                width: 10em; /* Adjusted width for mobile */
+                height: 2.5em; /* Adjusted height for mobile */
+                font-size: 0.9rem; /* Adjusted font size for mobile */
+                padding: 0 0.8em; /* Adjusted padding for mobile */
+            }
+
+            .left-shapes .shape i {
+                font-size: 1.2em; /* Adjusted icon size for mobile */
+            }
+
+            .social-icons-below {
+                flex-direction: row; /* Display icons in a row on smaller screens */
+            }
+
+            .services-section .section-title {
+                font-size: 2rem; /* Smaller font size for mobile */
+            }
+
+            .services-section .section-subtitle {
+                font-size: 1rem; /* Smaller font size for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">Kutullo</div>
+        <div class="nav-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <button class="download-btn">
+                <i class="fas fa-download"></i> Download CV
+            </button>
+        </div>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+
+    <section class="home-page">
+        <div class="home-page-text">
+            <h4>Hello, I'm Kutullo</h4>
+            <p>Welcome to my portfolio. I'm a passionate web developer, and I'm excited to show you my work.</p>
+            <div class="button-container">
+                <button>Contact Me</button>
+                <div class="chatbot-btn">
+                    <i class="fas fa-comment"></i>
+                </div>
+            </div>
+        </div>
+        <div class="image-container">
+            <div class="illustration">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="left-shapes">
+                <div class="shape">
+                    <i class="fas fa-laptop-code"></i> <!-- Icon for Software Developer -->
+                    Software Developer
+                </div>
+                <div class="shape">
+                    <i class="fas fa-chart-line"></i> <!-- Icon for Data Analyst -->
+                    Data Analyst
+                </div>
+                <div class="shape">
+                    <i class="fas fa-database"></i> <!-- Icon for Information Specialist -->
+                    Information Specialist
+                </div>
+            </div>
+        </div>
+        <!-- Social Icons Below the Image Container -->
+        <div class="social-icons-below">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <h2 class="section-title">Our Services</h2>
+        <p class="section-subtitle">We offer a wide range of services to help you achieve your goals.</p>
+        <!-- Add your services content here -->
+    </section>
+
+    <script>
+        // JavaScript for the hamburger menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>
