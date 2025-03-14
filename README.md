@@ -37,3 +37,21 @@ The following can be accessed via the chat-bot: [achievements, career aspiration
 
 ![My Image](Preview-1.png)
 
+
+
+![My Image](Preview-2.png)
+
+
+![My Image](Preview-3.png)
+
+
+![My Image](Preview-4.png)
+
+
+
+![My Image](Preview-5.png)
+
+
+
+
+
