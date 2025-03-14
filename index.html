@@ -312,152 +312,153 @@
 
     <!-- CHATBOT SCRIPT START -->
     <script>
-        const chatbotIcon = document.getElementById('chatbot-icon');
-const chatbotContainer = document.getElementById('chatbot-container');
-const inputForm = document.getElementById('input-form');
-const inputField = document.getElementById('input-field');
-const conversation = document.getElementById('conversation');
-const closeButton = document.getElementById('close-button');
+            const chatbotIcon = document.getElementById('chatbot-icon');
+            const chatbotContainer = document.getElementById('chatbot-container');
+            const inputForm = document.getElementById('input-form');
+            const inputField = document.getElementById('input-field');
+            const conversation = document.getElementById('conversation');
+            const closeButton = document.getElementById('close-button');
+            
+            // Track if the chatbot is open
+            let isChatbotOpen = false;
+            
+            // Toggle chatbot visibility
+            chatbotIcon.addEventListener('click', () => {
+                isChatbotOpen = !isChatbotOpen;
+                chatbotContainer.classList.toggle('active', isChatbotOpen);
+                if (isChatbotOpen) {
+                    showMainMenu(); // Show the main menu when the chatbot opens
+                }
+            });
+            
+            // Close chatbot when close button is clicked
+            closeButton.addEventListener('click', () => {
+                isChatbotOpen = false;
+                chatbotContainer.classList.remove('active');
+            });
+            
+            // Track if the chatbot is in "exit" mode
+            let isExited = false;
+            
+            // Add event listener to input form
+            inputForm.addEventListener('submit', function (event) {
+                // Prevent form submission
+                event.preventDefault();
+            
+                // Get user input
+                const input = inputField.value.trim();
+            
+                // Clear input field
+                inputField.value = '';
+            
+                // If in "exit" mode, only allow "5" to restart
+                if (isExited) {
+                    if (input === '5') {
+                        isExited = false;
+                        showMainMenu();
+                    } else {
+                        addChatbotMessage("🚫 Invalid input. Please type '5' to restart.");
+                    }
+                    return;
+                }
+            
+                // Validate input (must be a number)
+                if (!/^\d+$/.test(input)) {
+                    addChatbotMessage("🚫 Oops! Please enter a number.");
+                    showMainMenu();
+                    return;
+                }
+            
+                // Handle user input
+                handleUserInput(Number(input));
+            });
+            
+            // Function to handle user input
+            function handleUserInput(option) {
+                if (option === 1) {
+                    addUserMessage("1");
+                    addChatbotMessage("🏆 I was honored with the Innovation and Coordinator Awards by the Student Affairs Department at the University of Pretoria. Pretty cool, right? 😎");
+                    showOptionsAfterResponse();
+                } else if (option === 2) {
+                    addUserMessage("2");
+                    addChatbotMessage("🚀 I'm passionate about graduate software development and data analytics programs. I want to level up my skills to production-grade awesomeness! 💻📊");
+                    showOptionsAfterResponse();
+                } else if (option === 3) {
+                    addUserMessage("3");
+                    addChatbotMessage("🤝 I thrive in organizations that value collaboration, knowledge sharing, and employee well-being. Teamwork makes the dream work! 🌟");
+                    showOptionsAfterResponse();
+                } else if (option === 4) {
+                    addUserMessage("4");
+                    addChatbotMessage("📚 I served as a Tutor at the Department of Information Science at the University of Pretoria, teaching INL 110 and INL 120. Sharing knowledge is my superpower! 🦸‍♂️");
+                    addChatbotMessage("📊 I also served as a Data and Reporting Specialist at STARS Mentorship, where I manipulated program data to make informed decisions. Data is my playground! 🎲");
+                    showOptionsAfterResponse();
+                } else if (option === 5) {
+                    addUserMessage("5");
+                    addChatbotMessage("👋 Thank you for chatting with me! If you want to restart, just type '5'. See you soon! 😊");
+                    isExited = true;
+                } else if (option === 6) {
+                    addUserMessage("6");
+                    showMainMenu(); // Return to the main menu
+                } else {
+                    addUserMessage(option.toString());
+                    addChatbotMessage("🤔 Hmm, that's not a valid option. Let's try again!");
+                    showMainMenu();
+                }
+            }
+            
+            // Function to show the main menu
+            function showMainMenu() {
+                const options = [
+                    "👋 Hello! You can call me Dev Kutullo. How can I help you today? Remember to use numbers to select options:",
+                    "1. Achievements 🏆",
+                    "2. Career Aspirations 🚀",
+                    "3. Work Dynamics 🤝",
+                    "4. Experience 📚",
+                    "5. Exit 👋"
+                ];
+            
+                // Clear the conversation before showing the main menu
+                conversation.innerHTML = '';
+            
+                // Loop through each option and display it as a separate message
+                options.forEach(option => addChatbotMessage(option));
+            }
+            
+            // Function to show options after a response
+            function showOptionsAfterResponse() {
+                const options = [
+                    "✨ What would you like to do next?",
+                    "6. Main Menu 🏠",
+                    "5. Exit 👋"
+                ];
+            
+                // Loop through each option and display it as a separate message
+                options.forEach(option => addChatbotMessage(option));
+            }
+            
+            // Function to add a chatbot message
+            function addChatbotMessage(text) {
+                const message = document.createElement('div');
+                message.classList.add('chatbot-message');
+                message.innerHTML = `<p class="chatbot-text">${text}</p>`;
+                conversation.appendChild(message);
+                conversation.scrollTop = conversation.scrollHeight;
+            }
+            
+            // Function to add a user message
+            function addUserMessage(text) {
+                const message = document.createElement('div');
+                message.classList.add('chatbot-message', 'user-message');
+                message.innerHTML = `<p class="chatbot-text">${text}</p>`;
+                conversation.appendChild(message);
+                conversation.scrollTop = conversation.scrollHeight;
+            }
+            
+            // Show the main menu when the chatbot starts (if it's open)
+            if (isChatbotOpen) {
+                showMainMenu();
+            }
 
-// Track if the chatbot is open
-let isChatbotOpen = false;
-
-// Toggle chatbot visibility
-chatbotIcon.addEventListener('click', () => {
-    isChatbotOpen = !isChatbotOpen;
-    chatbotContainer.classList.toggle('active', isChatbotOpen);
-    if (isChatbotOpen) {
-        showMainMenu(); // Show the main menu when the chatbot opens
-    }
-});
-
-// Close chatbot when close button is clicked
-closeButton.addEventListener('click', () => {
-    isChatbotOpen = false;
-    chatbotContainer.classList.remove('active');
-});
-
-// Track if the chatbot is in "exit" mode
-let isExited = false;
-
-// Add event listener to input form
-inputForm.addEventListener('submit', function (event) {
-    // Prevent form submission
-    event.preventDefault();
-
-    // Get user input
-    const input = inputField.value.trim();
-
-    // Clear input field
-    inputField.value = '';
-
-    // If in "exit" mode, only allow "5" to restart
-    if (isExited) {
-        if (input === '5') {
-            isExited = false;
-            showMainMenu();
-        } else {
-            addChatbotMessage("🚫 Invalid input. Please type '5' to restart.");
-        }
-        return;
-    }
-
-    // Validate input (must be a number)
-    if (!/^\d+$/.test(input)) {
-        addChatbotMessage("🚫 Oops! Please enter a number.");
-        showMainMenu();
-        return;
-    }
-
-    // Handle user input
-    handleUserInput(Number(input));
-});
-
-// Function to handle user input
-function handleUserInput(option) {
-    if (option === 1) {
-        addUserMessage("1");
-        addChatbotMessage("🏆 I was honored with the Innovation and Coordinator Awards by the Student Affairs Department at the University of Pretoria. Pretty cool, right? 😎");
-        showOptionsAfterResponse();
-    } else if (option === 2) {
-        addUserMessage("2");
-        addChatbotMessage("🚀 I'm passionate about graduate software development and data analytics programs. I want to level up my skills to production-grade awesomeness! 💻📊");
-        showOptionsAfterResponse();
-    } else if (option === 3) {
-        addUserMessage("3");
-        addChatbotMessage("🤝 I thrive in organizations that value collaboration, knowledge sharing, and employee well-being. Teamwork makes the dream work! 🌟");
-        showOptionsAfterResponse();
-    } else if (option === 4) {
-        addUserMessage("4");
-        addChatbotMessage("📚 I served as a Tutor at the Department of Information Science at the University of Pretoria, teaching INL 110 and INL 120. Sharing knowledge is my superpower! 🦸‍♂️");
-        addChatbotMessage("📊 I also served as a Data and Reporting Specialist at STARS Mentorship, where I manipulated program data to make informed decisions. Data is my playground! 🎲");
-        showOptionsAfterResponse();
-    } else if (option === 5) {
-        addUserMessage("5");
-        addChatbotMessage("👋 Thank you for chatting with me! If you want to restart, just type '5'. See you soon! 😊");
-        isExited = true;
-    } else if (option === 6) {
-        addUserMessage("6");
-        showMainMenu(); // Return to the main menu
-    } else {
-        addUserMessage(option.toString());
-        addChatbotMessage("🤔 Hmm, that's not a valid option. Let's try again!");
-        showMainMenu();
-    }
-}
-
-// Function to show the main menu
-function showMainMenu() {
-    const options = [
-        "👋 Hello! You can call me Dev Kutullo. How can I help you today? Remember to use numbers to select options:",
-        "1. Achievements 🏆",
-        "2. Career Aspirations 🚀",
-        "3. Work Dynamics 🤝",
-        "4. Experience 📚",
-        "5. Exit 👋"
-    ];
-
-    // Clear the conversation before showing the main menu
-    conversation.innerHTML = '';
-
-    // Loop through each option and display it as a separate message
-    options.forEach(option => addChatbotMessage(option));
-}
-
-// Function to show options after a response
-function showOptionsAfterResponse() {
-    const options = [
-        "✨ What would you like to do next?",
-        "6. Main Menu 🏠",
-        "5. Exit 👋"
-    ];
-
-    // Loop through each option and display it as a separate message
-    options.forEach(option => addChatbotMessage(option));
-}
-
-// Function to add a chatbot message
-function addChatbotMessage(text) {
-    const message = document.createElement('div');
-    message.classList.add('chatbot-message');
-    message.innerHTML = `<p class="chatbot-text">${text}</p>`;
-    conversation.appendChild(message);
-    conversation.scrollTop = conversation.scrollHeight;
-}
-
-// Function to add a user message
-function addUserMessage(text) {
-    const message = document.createElement('div');
-    message.classList.add('chatbot-message', 'user-message');
-    message.innerHTML = `<p class="chatbot-text">${text}</p>`;
-    conversation.appendChild(message);
-    conversation.scrollTop = conversation.scrollHeight;
-}
-
-// Show the main menu when the chatbot starts (if it's open)
-if (isChatbotOpen) {
-    showMainMenu();
-}
     </script>
     <!-- CHATBOT SCRIPT END -->
 
