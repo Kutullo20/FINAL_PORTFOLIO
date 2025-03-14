@@ -435,14 +435,6 @@ body {
 /* SECTION CONTAINER END */
 
 
-
-
-
-
-
-
-
-
 /* EDUCATION START */
 
 /* CARD CONTAINER START */
@@ -476,7 +468,7 @@ body {
 /* CARD TITLE START */
 .card h3 {
     font-size: 20px;
-    color: whitesmoke; /* WHITE TEXT */
+    color: whitesmoke; 
     margin-bottom: 10px;
     font-family: "Asap Condensed", sans-serif;
     font-weight: bold;
@@ -486,7 +478,7 @@ body {
 /* CARD PARAGRAPH START */
 .card p {
     font-size: 16px;
-    color: white; /* WHITE TEXT */
+    color: white; 
     margin-bottom: 15px;
     text-align: left;
     display: inline-flex;
@@ -626,8 +618,8 @@ body {
 /* SKILL ICON START */
 .skill-icon {
     position: relative;
-    width: 120px; /* SAME SIZE AS PROGRESS RING */
-    height: 120px; /* SAME SIZE AS PROGRESS RING */
+    width: 120px; 
+    height: 120px; 
     border-radius: 50%;
     background: #007bff; /* BLUE BACKGROUND */
     display: flex;
