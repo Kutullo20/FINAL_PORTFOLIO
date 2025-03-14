@@ -3,169 +3,463 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kutullo - Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            background-color: #f4f4f4;
-        }
-        .nav-border {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: #222;
-            color: white;
-            padding: 15px 50px;
-        }
-        .nav-border ul {
-            list-style: none;
-            display: flex;
-            justify-items: flex-end;
-        }
-        .nav-border ul li {
-            margin: 10px 10px;
-        }
-        .nav-border ul li a {
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-        }
-        .hero {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 80vh;
-            background: url('your-background-image.jpg') no-repeat center center/cover;
-            padding: 50px;
-            color: white;
-            background-color: black;
-        }
-        .hero-text {
-            max-width: 50%;
-            font-size: 2em;
-            font-weight: bold;
-        }
-        .hero button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 1em;
-            border: none;
-            background: #ff6600;
-            color: white;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .hero button:hover {
-            background: #cc5500;
-        }
-        .hero-image {
-            width: 400px;
-            height: 400px;
-            background: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            margin-right: 150px;
-            position: relative;
-        }
-        .hero-image img {
-            border-radius: 10px;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .social-icons {
-            position: absolute;
-            bottom: -70px;
-            right: 3    0%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 15px;
-        }
-        .social-icons a {
-            text-decoration: none;
-            color: #222;
-            font-size: 24px;
-            transition: color 0.3s;
-            background: white;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-           
-        }
-        .social-icons a:hover {
-            color: #ff6600;
-        }
-        .first{
-            background-color: black;
-            color: #f4f4f4;
-            font-size: 20px;
-            border-radius: 20px;
-            padding: 10px 15px;
-            border: none;
-        }
-        .typing-text::after {
-            content: '|';
-            animation: blink 0.7s infinite;
-        }
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
-        }
-    </style>
+    <title>Portfolio</title>
+    <!-- FONT AWESOME FOR ICONS START -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- FONT AWESOME FOR ICONS END -->
+    <!-- CUSTOM CSS START -->
+    <link rel="stylesheet" href="style.css">
+    <!-- CUSTOM CSS END -->
 </head>
 <body>
-    <nav class="nav-border">
+
+    <!-- NAVBAR SECTION START -->
+    <div class="navbar">
         <div class="logo">Kutullo</div>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#summary">Summary</a></li>
-            <li class="first"><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
-    
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Welcome to My Portfolio</h1>
-            <p>Passionate about technology and innovation. Let's connect!</p>
-            <button>View Profile Summary</button>
+        <div class="nav-menu">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#Education">Education</a></li>
+                <li><a href="#Skills">Skills</a></li>
+                <li><a href="#organizations">Organizations</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="download-btn">
+                <i class="fas fa-download"></i> Download CV
+            </button>
         </div>
-        <div class="hero-image">
-            <img src="kutullo.jpeg" alt="Kutullo's Picture">
-            <div class="social-icons">
-                <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" target="_blank"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        <div class="hamburger">
+            <i class="fas fa-bars"></i>
+        </div>
+    </div>
+    <!-- NAVBAR SECTION END -->
+
+    <!-- HOME PAGE SECTION START -->
+    <section class="home-page" id="home">
+        <div class="home-page-text">
+            <h4>&lt;h4&gt;Hello👋, I'm Kutullo&lt;/h4&gt;</h4>
+            <p>{Welcome to my portfolio. I'm a passionate software developer and data analyst , and I'm excited to show you my portfolio.}🚀</p>
+            <div class="button-container">
+                <button>Contact Me</button>
+                <div class="chatbot-btn">
+                    <i class="fas fa-comment"></i>
+                </div>
+            </div>
+        </div>
+        <div class="image-container">
+            <div class="illustration">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="left-shapes">
+                <div class="shape">
+                    <i class="fas fa-laptop-code"></i> Software Developer
+                </div>
+                <div class="shape">
+                    <i class="fas fa-chart-line"></i> Data Analyst
+                </div>
+                <div class="shape">
+                    <i class="fas fa-database"></i> Information Specialist
+                </div>
+            </div>
+        </div>
+        <div class="social-icons-below">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    </section>
+    <!-- HOME PAGE SECTION END -->
+
+    <!-- EDUCATION SECTION START -->
+    <section class="section-container" id="Education" style="background-color:  #21E6C1;">
+        <h2 class="section-title">My Education🎓</h2>
+        <p class="section-subtitle">Below, you'll find my educational journey</p>
+        <div class="card-container">
+            <div class="card">
+                <div class="info-box start-year">2025</div>
+                <div class="info-box end-year">------</div>
+                <div class="icon"> 🖥️</div>
+                <h3>Capaciti: Software Development Bootcamp</h3>
+                <p> <i class="fas fa-laptop-code"></i>Python</p>
+                <p> <i class="fas fa-laptop-code"></i>JavaScript</p>
+                <p> <i class="fas fa-laptop-code"></i>Java</p>
+                <p> <i class="fas fa-laptop-code"></i>React</p>
+                <div class="info-box average">Average Score: -----</div>
+            </div>
+            <div class="card">
+                <div class="info-box start-year">2024</div>
+                <div class="info-box end-year">2024</div>
+                <div class="icon">📚</div>
+                <h3>University of Pretoria: Honours In information Science</h3>
+                <p> <i class="fas fa-balance-scale"></i>Data and Information Ethics</p>
+                <p> <i class="fas fa-cogs"></i>IT Management</p>
+                <p> <i class="fas fa-book-open"></i>Knowledge Management</p>
+                <p> <i class="fas fa-shield-alt"></i>Data Governance</p>
+                <div class="info-box average">Average Score: 65%</div>
+            </div>
+            <div class="card">
+                <div class="info-box start-year">2016</div>
+                <div class="info-box end-year">2020</div>
+                <div class="icon">📚</div>
+                <h3>University of Pretoria: Bachelor of information Science</h3>
+                <p> <i class="fas fa-project-diagram"></i>Systems Design</p>
+                <p> <i class="fas fa-database"></i>Database administration</p>
+                <p> <i class="fas fa-folder-open"></i>Information Management</p>
+                <p> <i class="fas fa-search"></i>IT Auditing</p>
+                <div class="info-box average">Average Score: 70%</div>
+            </div>
+            <div class="card">
+                <div class="info-box start-year">2022</div>
+                <div class="info-box end-year">2025</div>
+                <div class="icon">📚</div>
+                <h3>Lehwelereng Secondary School: NSC</h3>
+                <p> <i class="fas fa-dna"></i>Life sciences</p>
+                <p> <i class="fas fa-globe-africa"></i>Geography</p>
+                <p> <i class="fas fa-square-root-alt"></i>Math</p>
+                <p> <i class="fas fas fa-book"></i>English</p>
+                <div class="info-box average">Average Score: 70%</div>
+            </div>
+        </div>
+        <div class="button-container">
+            <a href="#" download class="download-btn" type="submit">Download My Academic Records</a>
+        </div>
+    </section>
+    <!-- EDUCATION SECTION END -->
+
+    <!-- SKILLS SECTION START -->
+    <section class="section-container" id="Skills" style="background-color: #021526;">
+        <h2 class="section-title">My Skills🛠️</h2>
+        <p class="section-subtitle">Below you will find all the skills I have</p>
+        <div class="skills-container">
+            <div class="skill-card">
+                <h4>Data Analysis</h4>
+                <div class="skill-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h4>PowerBI</h4>
+                <div class="skill-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h4>AI Integration</h4>
+                <div class="skill-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h4>Web Development</h4>
+                <div class="skill-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h4>SQL</h4>
+                <div class="skill-icon">
+                    <i class="fas fa-database"></i>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h4>Cloud Computing</h4>
+                <div class="skill-icon">
+                    <i class="fas fa-cloud"></i>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h4>Data Visualization</h4>
+                <div class="skill-icon">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h4>Project Management</h4>
+                <div class="skill-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h4>Python</h4>
+                <div class="skill-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h4>JavaScript</h4>
+                <div class="skill-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h4>css</h4>
+                <div class="skill-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+            </div>
+            <div class="skill-card">
+                <h4>HTML</h4>
+                <div class="skill-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
             </div>
         </div>
     </section>
+    <!-- SKILLS SECTION END -->
+
+    <!-- ORGANIZATIONS SECTION START -->
+    <section class="section-container" id="organizations">
+        <h2 class="section-title" id="organizations">Organizations I've Been Involved With</h2>
+        <p class="section-subtitle">Here are some of the organizations I've collaborated with</p>
+        <div class="logos-slider">
+            <div class="logos-track">
+                <div class="logo-item">
+                    <img src="https://lh4.googleusercontent.com/GJHRxiZ6SVoWysDDk6x4jesqXjOhcVJOpXtfJnRiCA0Svb13qKm88AleTUW_bpjGEWF8MfXSdWAqIsoNoIyDVDbU3eM3s_gU-ZxD-ujpJF2byCoKPP7pAzZo_lLrRBZ-om_ZNwpzJXYeW9bk1pjgEaU" alt="Organization 1">
+                </div>
+                <div class="logo-item">
+                    <img src="https://media.licdn.com/dms/image/C4D0BAQEdSlh9crCiMQ/company-logo_200_200/0/1679474348770?e=2147483647&v=beta&t=XErqAXLYR5CJfqS4exRNzeVz0e0LpcEoP2YQNxQlP1k" alt="Organization 2">
+                </div>
+                <div class="logo-item">
+                    <img src="https://www.onyxeducate.com/wp-content/uploads/2023/11/Untitled-design-12.png" alt="Organization 3">
+                </div>
+                <div class="logo-item">
+                    <img src="https://th.bing.com/th/id/OIP.4m0gBcFHEK7AOqXR5mHlVgHaHa?rs=1&pid=ImgDetMain" alt="Organization 4">
+                </div>
+                <div class="logo-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/University_of_Pretoria_Coat_of_Arms.png/225px-University_of_Pretoria_Coat_of_Arms.png" alt="Organization 5">
+                </div>
+                <div class="logo-item">
+                    <img src="https://lh4.googleusercontent.com/GJHRxiZ6SVoWysDDk6x4jesqXjOhcVJOpXtfJnRiCA0Svb13qKm88AleTUW_bpjGEWF8MfXSdWAqIsoNoIyDVDbU3eM3s_gU-ZxD-ujpJF2byCoKPP7pAzZo_lLrRBZ-om_ZNwpzJXYeW9bk1pjgEaU" alt="Organization 1">
+                </div>
+                <div class="logo-item">
+                    <img src="https://media.licdn.com/dms/image/C4D0BAQEdSlh9crCiMQ/company-logo_200_200/0/1679474348770?e=2147483647&v=beta&t=XErqAXLYR5CJfqS4exRNzeVz0e0LpcEoP2YQNxQlP1k" alt="Organization 2">
+                </div>
+                <div class="logo-item">
+                    <img src="https://www.onyxeducate.com/wp-content/uploads/2023/11/Untitled-design-12.png" alt="Organization 3">
+                </div>
+                <div class="logo-item">
+                    <img src="https://th.bing.com/th/id/OIP.4m0gBcFHEK7AOqXR5mHlVgHaHa?rs=1&pid=ImgDetMain" alt="Organization 4">
+                </div>
+                <div class="logo-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/University_of_Pretoria_Coat_of_Arms.png/225px-University_of_Pretoria_Coat_of_Arms.png" alt="Organization 5">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ORGANIZATIONS SECTION END -->
+
+    <!-- FOOTER SECTION START -->
+    <footer class="footer-section bg-gray-800 text-white py-8" Id="contact">
+        <div class="container mx-auto px-4 grid gap-8 md:grid-cols-3">
+            <div class="quick-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><i class="fas fa-home"></i> <a href="#home">Home</a></li>
+                    <li><i class="fas fa-graduation-cap"></i> <a href="#Education">Education</a></li>
+                    <li><i class="fas fa-code"></i> <a href="#Skills">Skills</a></li>
+                    <li><i class="fas fa-users"></i> <a href="#organizations">Organizations</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="contact-info">
+                <h3>Contact</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Pretoria, South Africa</li>
+                    <li><i class="fas fa-envelope"></i> kutulloletageng@gmail.com</li>
+                    <li><i class="fas fa-phone"></i> +27 79 969 2417</li>
+                    <li><i class="fas fa-globe"></i> South Africa</li>
+                </ul>
+            </div>
+            <div class="social-media">
+                <h3>Follow Me</h3>
+                <ul>
+                    <li><i class="fab fa-facebook"></i> <a href="#">Facebook</a></li>
+                    <li><i class="fab fa-twitter"></i> <a href="#">Twitter</a></li>
+                    <li><i class="fab fa-linkedin"></i> <a href="#">LinkedIn</a></li>
+                    <li><i class="fab fa-github"></i> <a href="#">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center text-gray-500 mt-8">
+            &copy; 2025 Kutullo. All rights reserved.
+        </div>
+    </footer>
+    <!-- FOOTER SECTION END -->
+
+    <!-- CHATBOT ICON START -->
+    <div class="chatbot-icon" id="chatbot-icon">
+        <i class="fas fa-comment"></i>
+    </div>
+    <!-- CHATBOT ICON END -->
+
+    <!-- CHATBOT CONTAINER START -->
+    <div class="chatbot-container" id="chatbot-container">
+        <div id="header">
+            <h1>Chatbot</h1>
+            <span id="close-button">&times;</span>
+        </div>
+        <div id="chatbot">
+            <div id="conversation"></div>
+            <form id="input-form">
+                <input id="input-field" type="text" placeholder="Type your message here" autocomplete="off">
+                <button id="submit-button" type="submit">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+    <!-- CHATBOT CONTAINER END -->
+
+    <!-- CHATBOT SCRIPT START -->
     <script>
-        const text = "Welcome to My Portfol";
-        let index = 0;
-        function typeEffect() {
-            if (index < text.length) {
-                document.querySelector(".typing-text").textContent += text.charAt(index);
-                index++;
-                setTimeout(typeEffect, 100);
-            }
+        const chatbotIcon = document.getElementById('chatbot-icon');
+const chatbotContainer = document.getElementById('chatbot-container');
+const inputForm = document.getElementById('input-form');
+const inputField = document.getElementById('input-field');
+const conversation = document.getElementById('conversation');
+const closeButton = document.getElementById('close-button');
+
+// Track if the chatbot is open
+let isChatbotOpen = false;
+
+// Toggle chatbot visibility
+chatbotIcon.addEventListener('click', () => {
+    isChatbotOpen = !isChatbotOpen;
+    chatbotContainer.classList.toggle('active', isChatbotOpen);
+    if (isChatbotOpen) {
+        showMainMenu(); // Show the main menu when the chatbot opens
+    }
+});
+
+// Close chatbot when close button is clicked
+closeButton.addEventListener('click', () => {
+    isChatbotOpen = false;
+    chatbotContainer.classList.remove('active');
+});
+
+// Track if the chatbot is in "exit" mode
+let isExited = false;
+
+// Add event listener to input form
+inputForm.addEventListener('submit', function (event) {
+    // Prevent form submission
+    event.preventDefault();
+
+    // Get user input
+    const input = inputField.value.trim();
+
+    // Clear input field
+    inputField.value = '';
+
+    // If in "exit" mode, only allow "5" to restart
+    if (isExited) {
+        if (input === '5') {
+            isExited = false;
+            showMainMenu();
+        } else {
+            addChatbotMessage("🚫 Invalid input. Please type '5' to restart.");
         }
-        window.onload = typeEffect;
+        return;
+    }
+
+    // Validate input (must be a number)
+    if (!/^\d+$/.test(input)) {
+        addChatbotMessage("🚫 Oops! Please enter a number.");
+        showMainMenu();
+        return;
+    }
+
+    // Handle user input
+    handleUserInput(Number(input));
+});
+
+// Function to handle user input
+function handleUserInput(option) {
+    if (option === 1) {
+        addUserMessage("1");
+        addChatbotMessage("🏆 I was honored with the Innovation and Coordinator Awards by the Student Affairs Department at the University of Pretoria. Pretty cool, right? 😎");
+        showOptionsAfterResponse();
+    } else if (option === 2) {
+        addUserMessage("2");
+        addChatbotMessage("🚀 I'm passionate about graduate software development and data analytics programs. I want to level up my skills to production-grade awesomeness! 💻📊");
+        showOptionsAfterResponse();
+    } else if (option === 3) {
+        addUserMessage("3");
+        addChatbotMessage("🤝 I thrive in organizations that value collaboration, knowledge sharing, and employee well-being. Teamwork makes the dream work! 🌟");
+        showOptionsAfterResponse();
+    } else if (option === 4) {
+        addUserMessage("4");
+        addChatbotMessage("📚 I served as a Tutor at the Department of Information Science at the University of Pretoria, teaching INL 110 and INL 120. Sharing knowledge is my superpower! 🦸‍♂️");
+        addChatbotMessage("📊 I also served as a Data and Reporting Specialist at STARS Mentorship, where I manipulated program data to make informed decisions. Data is my playground! 🎲");
+        showOptionsAfterResponse();
+    } else if (option === 5) {
+        addUserMessage("5");
+        addChatbotMessage("👋 Thank you for chatting with me! If you want to restart, just type '5'. See you soon! 😊");
+        isExited = true;
+    } else if (option === 6) {
+        addUserMessage("6");
+        showMainMenu(); // Return to the main menu
+    } else {
+        addUserMessage(option.toString());
+        addChatbotMessage("🤔 Hmm, that's not a valid option. Let's try again!");
+        showMainMenu();
+    }
+}
+
+// Function to show the main menu
+function showMainMenu() {
+    const options = [
+        "👋 Hello! You can call me Dev Kutullo. How can I help you today? Remember to use numbers to select options:",
+        "1. Achievements 🏆",
+        "2. Career Aspirations 🚀",
+        "3. Work Dynamics 🤝",
+        "4. Experience 📚",
+        "5. Exit 👋"
+    ];
+
+    // Clear the conversation before showing the main menu
+    conversation.innerHTML = '';
+
+    // Loop through each option and display it as a separate message
+    options.forEach(option => addChatbotMessage(option));
+}
+
+// Function to show options after a response
+function showOptionsAfterResponse() {
+    const options = [
+        "✨ What would you like to do next?",
+        "6. Main Menu 🏠",
+        "5. Exit 👋"
+    ];
+
+    // Loop through each option and display it as a separate message
+    options.forEach(option => addChatbotMessage(option));
+}
+
+// Function to add a chatbot message
+function addChatbotMessage(text) {
+    const message = document.createElement('div');
+    message.classList.add('chatbot-message');
+    message.innerHTML = `<p class="chatbot-text">${text}</p>`;
+    conversation.appendChild(message);
+    conversation.scrollTop = conversation.scrollHeight;
+}
+
+// Function to add a user message
+function addUserMessage(text) {
+    const message = document.createElement('div');
+    message.classList.add('chatbot-message', 'user-message');
+    message.innerHTML = `<p class="chatbot-text">${text}</p>`;
+    conversation.appendChild(message);
+    conversation.scrollTop = conversation.scrollHeight;
+}
+
+// Show the main menu when the chatbot starts (if it's open)
+if (isChatbotOpen) {
+    showMainMenu();
+}
     </script>
+    <!-- CHATBOT SCRIPT END -->
+
 </body>
 </html>
