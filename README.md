@@ -28,3 +28,12 @@ The following can be accessed via the chat-bot: [achievements, career aspiration
 
       *Full responsiveness for all screen sizes.
       *Enhanced accessibility and performance.
+
+
+👀 Preview of My Portfolio
+
+
+
+
+![My Image](Preview-1.png)
+
